@@ -7,17 +7,15 @@ public class UltraEntityCreeper extends EntityCreeper {
     private int maxFuseTicks = 4; /////////// Explosion timer here (Original value = 30)
     private int explosionRadius = 30; //////// Increase blast radius here (Original Value = 3)  
 
-}
+    public void die(DamageSource damagesource) {
+        super.die(damagesource);
+        if (damagesource.getEntity() instanceof EntitySkeleton) {
+            int i = Item.getId(Items.RECORD_1);
+            int j = Item.getId(Items.RECORD_12);
+            int k = i + this.random.nextInt(j - i + 1);
 
-    protected boolean a(EntityHuman entityhuman) {
-        ItemStack itemstack = entityhuman.inventory.getItemInHand();
-
-        if (itemstack != null && itemstack.getItem() == Items.FLINT_AND_STEEL) {
-            this.world.makeSound(this.locX + 0.5D, this.locY + 0.5D, this.locZ + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
-            entityhuman.ba();
-            if (!this.world.isStatic) {
-                this.cd();
-                itemstack.damage(1, entityhuman);
-                return true;
-            }
+            this.a(Item.getById(k), 1);
         }
+    }
+
+}
