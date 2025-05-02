@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 package net.minecraft.server;
 
 public class UltraEntityCreeper extends EntityCreeper {
@@ -18,8 +21,23 @@ public class UltraEntityCreeper extends EntityCreeper {
         }
     }
 
-    protected Item getLoot() {
+    ///////////////// (OLD getLoot() function)
+    protected Item getLoot() {        
         return Items.DIAMOND_PICKAXE; /////////// Set loot here (Original Value = SULPHUR)
     }
+
+    /////////////////// (NEW getLoot() function with an arraylist)
+    protected Item getLoot() {
+    ArrayList<Item> lootTable = new ArrayList<>();
+    
+    //////// Adding possible loot items here
+    lootTable.add(Items.DIAMOND_PICKAXE);
+    lootTable.add(Items.SULPHUR);
+    lootTable.add(Items.GOLD_INGOT);
+    lootTable.add(Items.IRON_SWORD);
+    lootTable.add(Items.APPLE);
+
+    Random random = new Random();
+    return lootTable.get(random.nextInt(lootTable.size()));
 
 }
