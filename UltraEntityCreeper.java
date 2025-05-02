@@ -44,7 +44,7 @@ public class UltraEntityCreeper extends EntityCreeper {
     lootTable.add(Items.IRON_SWORD);
     lootTable.add(Items.APPLE);
 
-    lootTable.add(Item.getById(Block.getId(Blocks.TNT))); /////// DROPS TNT!!!!!!!!
+    lootTable.add(Item.getById(Block.getId(Blocks.TNT))); /////// DROPS TNT!!!!!!
 
     Random random = new Random();
     return lootTable.get(random.nextInt(lootTable.size()));
