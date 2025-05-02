@@ -5,10 +5,15 @@ package net.minecraft.server;
 
 public class UltraEntityCreeper extends EntityCreeper {
 
-    private int bp;
-    private int fuseTicks;
-    private int maxFuseTicks = 4; /////////// Explosion timer here (Original value = 30)
-    private int explosionRadius = 30; //////// Increase blast radius here (Original Value = 3)  
+    //////////////////////////////////////////////////////
+    //private int bp;
+    //private int fuseTicks;
+    //private int maxFuseTicks = 4; /////////// Explosion timer here (Original value = 30)
+    //private int explosionRadius = 30; //////// Increase blast radius here (Original Value = 3)  
+    //////////////////////////////////////////////////////////////
+
+    maxFuseTicks = 4;
+    explosionRadius = 30;
 
     public void die(DamageSource damagesource) { ////////// (This isn't needed)
         super.die(damagesource);
@@ -21,10 +26,12 @@ public class UltraEntityCreeper extends EntityCreeper {
         }
     }
 
+    //////////////////////////////////////////////////////////////////////////////
     ///////////////// (OLD getLoot() function)
-    protected Item getLoot() {        
-        return Items.DIAMOND_PICKAXE; /////////// Set loot here (Original Value = SULPHUR)
+    //protected Item getLoot() {        
+    //    return Items.DIAMOND_PICKAXE; /////////// Set loot here (Original Value = SULPHUR)
     }
+    /////////////////////////////////////////////////////////////////////////////////
 
     /////////////////// (NEW getLoot() function with an arraylist)
     protected Item getLoot() {
