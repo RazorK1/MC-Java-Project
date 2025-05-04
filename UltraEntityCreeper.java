@@ -15,6 +15,7 @@ public class UltraEntityCreeper extends EntityCreeper {
     maxFuseTicks = 4;
     explosionRadius = 30;
 
+    //////////////////////////////////////////////////////////////////////////////
     public void die(DamageSource damagesource) { ////////// (This isn't needed)
         super.die(damagesource);
         if (damagesource.getEntity() instanceof EntitySkeleton) {
