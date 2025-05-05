@@ -15,7 +15,7 @@ public class UltraEntityCreeper extends EntityCreeper {
     maxFuseTicks = 4;
     explosionRadius = 30;
 
-    EntityCreeper(World world) {
+    public UltraEntityCreeper(World world) {
         super(world);
         this.goalSelector.a(1, new PathfinderGoalFloat(this));
         this.goalSelector.a(2, new PathfinderGoalSwell(this));
