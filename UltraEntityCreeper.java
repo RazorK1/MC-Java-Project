@@ -15,6 +15,8 @@ public class UltraEntityCreeper extends EntityCreeper {
     maxFuseTicks = 4;
     explosionRadius = 30;
 
+}
+
     public UltraEntityCreeper(World world) {
         super(world);
         this.goalSelector.a(1, new PathfinderGoalFloat(this));
@@ -40,11 +42,12 @@ public class UltraEntityCreeper extends EntityCreeper {
         }
     }
 
+
     //////////////////////////////////////////////////////////////////////////////
     ///////////////// (OLD getLoot() function)
     //protected Item getLoot() {        
     //    return Items.DIAMOND_PICKAXE; /////////// Set loot here (Original Value = SULPHUR)
-    }
+    //}
     /////////////////////////////////////////////////////////////////////////////////
 
     /////////////////// (NEW getLoot() function with an arraylist)
@@ -65,6 +68,7 @@ public class UltraEntityCreeper extends EntityCreeper {
 
     Random random = new Random();
     return lootTable.get(random.nextInt(lootTable.size()));
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int cb() {
@@ -117,5 +121,3 @@ public class UltraEntityCreeper extends EntityCreeper {
     public void cd() {
         this.datawatcher.watch(18, Byte.valueOf((byte) 1));
     }
-    
-}
