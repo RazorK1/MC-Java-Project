@@ -63,4 +63,56 @@ public class UltraEntityCreeper extends EntityCreeper {
     Random random = new Random();
     return lootTable.get(random.nextInt(lootTable.size()));
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public int cb() {
+        return this.datawatcher.getByte(16);
+    }
+
+    public void a(int i) {
+        this.datawatcher.watch(16, Byte.valueOf((byte) i));
+    }
+
+    public void a(EntityLightning entitylightning) {
+        super.a(entitylightning);
+        this.datawatcher.watch(17, Byte.valueOf((byte) 1));
+    }
+
+    protected boolean a(EntityHuman entityhuman) {
+        ItemStack itemstack = entityhuman.inventory.getItemInHand();
+
+        if (itemstack != null && itemstack.getItem() == Items.FLINT_AND_STEEL) {
+            this.world.makeSound(this.locX + 0.5D, this.locY + 0.5D, this.locZ + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
+            entityhuman.ba();
+            if (!this.world.isStatic) {
+                this.cd();
+                itemstack.damage(1, entityhuman);
+                return true;
+            }
+        }
+
+        return super.a(entityhuman);
+    }
+
+    private void ce() {
+        if (!this.world.isStatic) {
+            boolean flag = this.world.getGameRules().getBoolean("mobGriefing");
+
+            if (this.isPowered()) {
+                this.world.explode(this, this.locX, this.locY, this.locZ, (float) (this.explosionRadius * 2), flag); ///////Increase blast radius of powered explosion here (this.explosionRadius * 2)
+            } else {
+                this.world.explode(this, this.locX, this.locY, this.locZ, (float) this.explosionRadius, flag);
+            }
+
+            this.die();
+        }
+    }
+
+    public boolean cc() {
+        return this.datawatcher.getByte(18) != 0;
+    }
+
+    public void cd() {
+        this.datawatcher.watch(18, Byte.valueOf((byte) 1));
+    }
+    
 }
