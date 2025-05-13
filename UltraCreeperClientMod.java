@@ -15,7 +15,7 @@ public class UltraCreeperClientMod implements ClientModInitializer {
             new MobEntityRenderer<>(context, new CreeperEntityModel<>(context.getPart(EntityModelLayers.CREEPER)), 0.5f) {
                 @Override
                 public Identifier getTexture(UltraCreeperEntity entity) {
-                    return new Identifier("ultracreeper", "textures/entity/ultra_creeper.png"); /////// Set texture model here.
+                    return new Identifier("ultracreeper", "textures/entity/REDCREEPERSKIN.png"); /////// Set texture model here.
                 }
             }
         );
