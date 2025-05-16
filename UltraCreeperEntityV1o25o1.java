@@ -90,6 +90,18 @@ public class UltraCreeperEntity extends CreeperEntity {
 		}
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Breathe underwater function
+	@Override
+	public boolean canDrownInFluidType(FluidType type) {
+		double x = this.getX();
+		double y = this.getY();
+		double z = this.getZ();
+		Level world = this.level();
+		Entity entity = this;
+		return false;
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static void init(RegisterSpawnPlacementsEvent event) {
 		event.register(DemoModModEntities.ULTRACREEPER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)),
