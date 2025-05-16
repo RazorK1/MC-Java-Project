@@ -16,9 +16,11 @@ public class UltraCreeperEntity extends CreeperEntity {
     public UltraCreeperEntity(EntityType<? extends CreeperEntity> entityType, World world) {
         super(entityType, world);
 
-        //super(type, world);
-		//xpReward = 0;
-		//setNoAi(false);
+        super(type, world);
+	xpReward = 0;
+	setNoAi(false);
+	    
+	setPersistenceRequired(); ////// Prevents despawning when idle
         
     }
 
