@@ -2,8 +2,8 @@ package net.demo.client.renderer;
 
 /* imports omitted */
 
-public class UltraCreeperEntityRenderer extends MobRenderer<UltraCreeperEntityEntity, CreeperRenderState, CreeperModel> {
-	private UltraCreeperEntityEntity entity = null;
+public class UltraCreeperEntityRenderer extends MobRenderer<UltraCreeperEntity, CreeperRenderState, CreeperModel> {
+	private UltraCreeperEntity entity = null;
 
 	public UltraCreeperEntityRenderer(EntityRendererProvider.Context context) {
 		super(context, new AnimatedModel(context.bakeLayer(ModelLayers.CREEPER)), 0.5f);
@@ -24,7 +24,7 @@ public class UltraCreeperEntityRenderer extends MobRenderer<UltraCreeperEntityEn
 	}
 
 	@Override
-	public void extractRenderState(UltraCreeperEntityEntity entity, CreeperRenderState state, float partialTicks) {
+	public void extractRenderState(UltraCreeperEntity entity, CreeperRenderState state, float partialTicks) {
 		super.extractRenderState(entity, state, partialTicks);
 		this.entity = entity;
 		if (this.model instanceof AnimatedModel) {
@@ -38,13 +38,13 @@ public class UltraCreeperEntityRenderer extends MobRenderer<UltraCreeperEntityEn
 	}
 
 	private static final class AnimatedModel extends CreeperModel {
-		private UltraCreeperEntityEntity entity = null;
+		private UltraCreeperEntity entity = null;
 
 		public AnimatedModel(ModelPart root) {
 			super(root);
 		}
 
-		public void setEntity(UltraCreeperEntityEntity entity) {
+		public void setEntity(UltraCreeperEntity entity) {
 			this.entity = entity;
 		}
 
