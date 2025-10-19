@@ -26,7 +26,7 @@ public class UltraCreeperEntity extends CreeperEntity {
 
     @Override
     public int getFuseTime() {
-        return 4; // Shorter fuse time
+        return 6; // Shorter fuse time (changed from 4)
     }
 
     @Override
